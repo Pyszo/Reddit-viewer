@@ -1,0 +1,37 @@
+<div class="row">
+	<h3>
+		<div class="col-sm-9">
+			<a target="_blank" ng-href="{{entryData[0].data.children[0].data.url}}">{{entryData[0].data.children[0].data.title}}</a>
+			<small> ({{entryData[0].data.children[0].data.score}}pt)</small>
+		</div>
+		<div class="col-sm-3">
+			<button type="button" class="btn btn-default" ng-click="contentView=false">Back</button>
+		</div>
+	</h3>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<img ng-src="{{entryData[0].data.children[0].data.thumbnail}}" ng-if="isThumb(entryData[0].data.children[0].data.thumbnail)" align="left" />
+		{{entryData[0].data.children[0].data.selftext}}
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h4><small>by {{entryData[0].data.children[0].data.author}} in {{entryData[0].data.children[0].data.domain}} ({{entryData[0].data.children[0].data.created_utc*1000 | date:'medium'}})</small></h4>
+	</div>
+</div>
+
+<div>
+	<div ng-controller="newCommentCtrl as rC">
+		<h4><u>Best comments:</u> <a ng-click=rC.showForm=true>(Add own comment)</a></h4>
+		<div ng-show="rC.showForm">	
+			<form novalidate>
+				Nick: <input type="text" ng-model="author" required /><br />
+				<textarea class="form-control" rows="3" ng-model="body" required></textarea>
+				<button ng-click="rC.addReply(entryData[1].data.children, author, body); author=''; body=''">Save</button>
+				<button ng-click="rC.showForm=false">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>
+

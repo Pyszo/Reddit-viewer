@@ -1,0 +1,31 @@
+<div ng-if="entryData[1].data.children.length == 0">No comments yet.</div>
+<div ng-repeat="c1 in entryData[1].data.children">
+	<h5 ng-init="child=c1"><comment-view></comment-view></h5>
+	<div ng-repeat="c2 in c1.data.replies.data.children" id="comment">
+		<h5 ng-init="child=c2"><comment-view></comment-view></h5>
+		<div ng-repeat="c3 in c2.data.replies.data.children" id="comment">
+			<h5 ng-init="child=c3"><comment-view></comment-view></h5>
+			<div ng-repeat="c4 in c3.data.replies.data.children" id="comment">
+				<h5 ng-init="child=c4"><comment-view></comment-view></h5>
+				<div ng-repeat="c5 in c4.data.replies.data.children" id="comment">
+					<h5 ng-init="child=c5"><comment-view></comment-view></h5>
+					<div ng-repeat="c6 in c5.data.replies.data.children" id="comment">
+						<h5 ng-init="child=c6"><comment-view></comment-view></h5>
+						<div ng-repeat="c7 in c6.data.replies.data.children" id="comment">
+							<h5 ng-init="child=c7"><comment-view></comment-view></h5>
+							<div ng-repeat="c8 in c7.data.replies.data.children" id="comment">
+								<h5 ng-init="child=c8"><comment-view></comment-view></h5>
+								<div ng-repeat="c9 in c8.data.replies.data.children" id="comment">
+									<h5 ng-init="child=c9"><comment-view></comment-view></h5>
+									<div ng-repeat="c10 in c9.data.replies.data.children" id="comment">
+										<h5 ng-init="child=c10"><comment-view></comment-view></h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

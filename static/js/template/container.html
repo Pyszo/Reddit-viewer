@@ -1,0 +1,22 @@
+<div ng-controller="dragDropCtrl" ui-on-Drop="onDrop($event,$data,toRead)" class="col-md-3 col-sm-12 hidden-xs">
+	<div class="panel panel-default" id="drop">
+		<div class="panel-heading">
+		<h3 class="panel-title text-center">Drag and drop here links that You want to see later</h3>
+		</div>
+		<div class="panel-body">
+			<div ng-repeat="tR in toRead track by $index" class="well">
+				<h6>
+					<a ng-click="checkContent(tR.data.id)">
+						{{tR.data.title}}
+					</a>
+					({{tR.data.score}}pt)
+				</h6>
+				<h5 class="text-right">
+					<small>by {{tR.data.author}} to {{tR.data.subreddit}}<br />
+						<a ng-click="remove($index, toRead)">-Remove</a>
+					</small>
+				</h5>
+			</div>
+		</div>
+	</div>
+</div>

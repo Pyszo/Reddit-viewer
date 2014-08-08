@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="redditViewer">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="Reddit, reddit.com, viewer">
+		<meta name="author" content="Pyszo">
+		<title>Reddid.com viewer</title>
+		<link rel="stylesheet" type="text/css" href="static/lib/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/css.css" />
+		<script type="text/javascript" src="static/lib/angular.min.js"></script>
+		<script type="text/javascript" src="static/lib/draganddrop.js"></script>
+		<script type="text/javascript" src="static/js/js.js"></script>
+		<script type="text/javascript" src="static/js/comments.js"></script>
+		<script type="text/javascript" src="static/js/directives.js"></script>
+	</head>
+	<body ng-controller="feedCtrl">
+		<div ng-controller="contentCtrl" class="page">
+			<div ng-controller="paginateCtrl" ng-hide="contentView" class="row">
+				<h1 class="text-center">Newest links from Reddit.com!</h1>
+				<div class="col-md-9 col-sm-12">
+					<div ng-repeat="row in rowIndex" class="row">
+						<div ng-repeat="col in columnIndex" class="col-sm-4">
+							<entry-slot></entry-slot>
+						</div>
+					</div>
+					<pager></pager>
+				</div>
+				<drop-container></drop-container>
+			</div>
+			<div ng-show="contentView">
+				<entry-content></entry-content>
+				<comments-view></comments-view>
+			</div>
+
+		</div>	
+	</body>
+</html>
